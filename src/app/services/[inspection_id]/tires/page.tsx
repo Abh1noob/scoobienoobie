@@ -1,7 +1,7 @@
 import React from "react";
 
 const Page = () => {
-  return <div>Auth</div>;
+  return <div className="">Tire Page is here</div>;
 };
 
 export default Page;
