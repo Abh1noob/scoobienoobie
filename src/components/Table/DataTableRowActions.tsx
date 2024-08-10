@@ -62,7 +62,7 @@ export function DataTableRowActions<TData>({
         {destructiveAction && (
           <DropdownMenuItem
             onClick={() => destructiveAction.onClick(row)}
-            className={`text-red-600 dark:text-red-500 ${destructiveAction.className || ""}`}
+            className={`text-red-600 dark:text-red-500 ${destructiveAction.className ?? ""}`}
           >
             {destructiveAction.label}
           </DropdownMenuItem>

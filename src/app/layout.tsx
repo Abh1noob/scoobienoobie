@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import "@/styles/globals.css";
-
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
@@ -14,14 +14,18 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // const queryClient = new QueryClient();
+
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body className="flex h-screen flex-row">
-        <Sidebar />
-        <div className="flex flex-1 flex-col">
-          <Navbar />
-          <div className="bg-background flex-1">{children}</div>
-        </div>
+        {/* <QueryClientProvider client={queryClient}> */}
+          <Sidebar />
+          <div className="flex flex-1 flex-col">
+            <Navbar />
+            <div className="flex-1 bg-background">{children}</div>
+          </div>
+        {/* </QueryClientProvider> */}
       </body>
     </html>
   );

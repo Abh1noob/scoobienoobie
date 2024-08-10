@@ -24,7 +24,7 @@ function ClientTable<T>({
           <RiLoader2Fill className="animate-spin" />
         </div>
       ) : (
-        <DataTable data={data || []} columns={columns} />
+        <DataTable data={data ?? []} columns={columns} />
       )}
     </>
   );

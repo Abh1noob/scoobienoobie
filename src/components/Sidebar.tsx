@@ -12,7 +12,7 @@ const Sidebar: React.FC = () => {
   return (
     <div className="flex h-full w-20 flex-col bg-white p-4">
       <Image
-        src={Logo}
+        src={Logo as HTMLImageElement}
         height={1000}
         width={1000}
         className="h-10 w-auto"
