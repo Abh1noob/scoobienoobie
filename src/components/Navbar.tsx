@@ -46,7 +46,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ pathSegments }) => {
         return (
           <React.Fragment key={index}>
             <span className="text-[#8B8D97]">/</span>
-            <Link href={path} className="text-[#8B8D97] hover:text-[#45464E]">
+            <Link href={path} className="text-[#8B8D97] hover:text-[#45464E] capitalize">
               {segment}
             </Link>
           </React.Fragment>
