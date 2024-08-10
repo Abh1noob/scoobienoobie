@@ -1,15 +1,7 @@
-"use client";
-
 import React from "react";
 
 const Page = () => {
-  
-
-  return (
-    <div>
-      
-    </div>
-  );
+  return <div>Completed</div>;
 };
 
 export default Page;

@@ -11,6 +11,7 @@ import Engine from "@/components/tabs/Engine";
 import Exterior from "@/components/tabs/Exterior";
 import Tire from "@/components/tabs/Tire";
 import { Badge } from "@/components/ui/badge";
+import { CustomBadge } from "@/components/ui/CustomBadge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Battery } from "lucide-react";
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -80,7 +81,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className="flex h-full flex-col p-8">
       <div className="flex flex-row gap-4 text-lg font-medium text-[#45464E]">
         <span className="">Inspection ID #{inspection_id}</span>
-        <Badge variant={"pending"}>In Progress</Badge>
+        <CustomBadge variant={"pending"}>In Progress</CustomBadge>
       </div>
       <div className="-ml-1 mt-8">
         <Tabs defaultValue="Tires">
