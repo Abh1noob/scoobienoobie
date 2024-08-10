@@ -52,6 +52,14 @@ const sampleData = [
     inspection_id: "INSP-006",
     service_status: "In Progress",
   },
+  {
+    image: "https://via.placeholder.com/150",
+    model_name: "Model C6",
+    customer: "Fiona Davis",
+    id_number: "ID-006",
+    inspection_id: "INSP-006",
+    service_status: "Failed",
+  },
 ];
 
 const Page = () => {

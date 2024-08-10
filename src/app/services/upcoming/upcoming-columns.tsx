@@ -1,6 +1,9 @@
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import Image from "next/image";
+import Link from "next/link";
 import { DataTableColumnHeader } from "@/components/Table/DataTableColumnHeader";
+import { Badge } from "@/components/ui/badge";
+import { CustomBadge } from "@/components/ui/CustomBadge";
 
 interface ServicesTableProps {
   image: string;
@@ -12,7 +15,6 @@ interface ServicesTableProps {
 }
 
 const sampleDataHelper = createColumnHelper<ServicesTableProps>();
-
 
 export const upcomingServicesColumns = [
   sampleDataHelper.accessor("image", {
@@ -83,24 +85,57 @@ export const upcomingServicesColumns = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Service Status" />
     ),
-    cell: ({ row }) => (
-      <span
-        className={`capitalize ${
-          row.original.service_status === "Completed"
-            ? "text-green-500"
-            : row.original.service_status === "Pending"
-              ? "text-yellow-500"
-              : "text-blue-500"
-        }`}
-      >
-        {row.original.service_status}
-      </span>
-    ),
+    cell: ({ row }) => {
+      const status = row.original.service_status;
+      let variant: "success" | "pending" | "failure" | "default" | "outline";
+
+      switch (status) {
+        case "Completed":
+          variant = "success";
+          break;
+        case "Pending":
+          variant = "default";
+          break;
+        case "In Progress":
+          variant = "pending";
+          break;
+        case "Failed":
+          variant = "failure";
+          break;
+        default:
+          variant = "outline";
+      }
+
+      return (
+        <CustomBadge variant={variant} className="capitalize">
+          {status}
+        </CustomBadge>
+      );
+    },
     enableSorting: true,
     enableHiding: false,
     meta: {
       className: "text-left",
       displayName: "Service Status",
+    },
+  }),
+  sampleDataHelper.accessor("inspection_id", {
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Actions" />
+    ),
+    cell: ({ row }) => (
+      <Link
+        href={`/services/${row.original.inspection_id}`}
+        className="rounded-xl p-2 text-[10px] text-[#1DCA8A] outline"
+      >
+        View Details
+      </Link>
+    ),
+    enableSorting: false,
+    enableHiding: false,
+    meta: {
+      className: "text-left",
+      displayName: "Actions",
     },
   }),
 ] as ColumnDef<ServicesTableProps>[];

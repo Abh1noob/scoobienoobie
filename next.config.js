@@ -17,6 +17,11 @@ const config = {
         destination: "/services/upcoming",
         permanent: false,
       },
+      {
+        source: "/:path*/inspection",
+        destination: "/:path*/inspection/tires",
+        permanent: false,
+      },
     ];
   },
 };
